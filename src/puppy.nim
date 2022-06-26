@@ -40,7 +40,7 @@ proc newRequest*(
 ): Request =
   ## Allocates a new request object with defaults.
   result = Request()
-  result.url = parseUrl(url)
+  result.url = parseUrl(url.replace("@", "%40"))
   result.verb = verb
   result.headers = headers
   result.timeout = timeout
